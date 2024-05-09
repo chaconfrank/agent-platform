@@ -7,9 +7,7 @@
     </div>
     <div class="container">
       <div class="column">
-
-
-        <MainCard msg="Uploaded a wrong artwork/typo"></MainCard>
+        <MainCard @click="toDescription('Uploaded a wrong artwork/typo', 'example')" msg="Uploaded a wrong artwork/typo"></MainCard>
         <MainCard msg="Low resolution"></MainCard>
         <MainCard msg="Print marks are printed on product"></MainCard>
         <MainCard msg="The colour is different (CMYK)"></MainCard>
@@ -39,6 +37,11 @@ export default {
   name: 'ComplaintsSection',
   components: {
     MainCard
+  },
+  methods: {
+    toDescription(title, description) {
+      this.$router.push({ path: '/description', query: { title: title, description: description } });
+    }
   }
 
 }

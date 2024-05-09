@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>{{ title }}</h1>
-        <h3>{{ description }}</h3>
+        <h1>{{ $route.query.title }}</h1>
+        <h3>{{ $route.query.description }}</h3>
     </div>
 </template>
 
@@ -9,10 +9,6 @@
 /* eslint-disable */
 export default {
     name: 'Description',
-    props: {
-        title: String,
-        description: String
-    }
 }
 </script>
 
