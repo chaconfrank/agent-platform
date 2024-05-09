@@ -1,27 +1,24 @@
 <template>
-  
-  <ComplaintsSection />
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import ComplaintsSection from './components/ComplaintsSection.vue';
-
-
-
 export default {
   name: 'App',
-  components: {
-    ComplaintsSection,
-  }
-}
+  created() {
+    this.$router.push('/');
+  },
+};
 </script>
 
 <style>
 body {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #222222;
   margin: 0;
   padding: 0;
 }
