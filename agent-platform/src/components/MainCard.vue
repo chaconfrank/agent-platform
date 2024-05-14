@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>{{ msg }}</p>
+        <button>{{ msg }}</button>
     </div>
 </template>
 
@@ -14,13 +14,15 @@ export default {
 </script>
 
 <style scoped>
-div {
+button {
     height: 80px;
+    font-weight: 500;
+    font-size: 16px;
     width: 280px;
     border-radius: 12px;
-    border: 0px solid var(--Negro, #000);
+    border: 0px solid;
     background: #EAEFF5;
-    padding: 10px;
+    padding: 5px 10px;
     margin:0px 0px 40px 0px;
 }
 </style>

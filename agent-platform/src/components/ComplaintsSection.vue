@@ -7,10 +7,23 @@
     </div>
     <div class="container">
       <div class="column">
-        <MainCard @click="toDescription('Uploaded a wrong artwork/typo', 'example')" msg="Uploaded a wrong artwork/typo"></MainCard>
-        <MainCard msg="Low resolution"></MainCard>
-        <MainCard msg="Print marks are printed on product"></MainCard>
-        <MainCard msg="The colour is different (CMYK)"></MainCard>
+        <MainCard @click="toDescription('Low resolution', 
+        'The quality can be bad because the quality of the file is also bad.',
+        'Compare the customers photo with the CPDF associated with their order.', 
+        'Is the DPI of the file too low?','NO', 'YES')" 
+        msg="Low resolution"></MainCard>
+
+        <MainCard @click="toDescription('Uploaded a wrong artwork', 
+        'The quality can be bad because the quality of the file is also bad.')" 
+        msg="Uploaded a wrong artwork"></MainCard>
+
+        <MainCard @click="toDescription('Print marks are printed on product', 
+        'Write here the description')" 
+        msg="Print marks are printed on product"></MainCard>
+
+        <MainCard @click="toDescription('The colour is different (CMYK)', 
+        'Write here the description')" 
+        msg="The colour is different (CMYK)"></MainCard>
       </div>
       <div class="column">
         <MainCard msg="The finishing is wrong"></MainCard>
@@ -39,8 +52,15 @@ export default {
     MainCard
   },
   methods: {
-    toDescription(title, description) {
-      this.$router.push({ path: '/description', query: { title: title, description: description } });
+    toDescription(title, description, action, question,btnsecondary, btnprimary) {
+      this.$router.push({ path: '/description', 
+      query: {
+      title, 
+      description, 
+      action, 
+      question,
+      btnsecondary,
+      btnprimary} });
     }
   }
 
@@ -56,7 +76,7 @@ export default {
   flex: 1;
   margin: 10px 20px;
   color: #222222;
-  font-weight: 600
+  font-weight: 900
 }
 
 
