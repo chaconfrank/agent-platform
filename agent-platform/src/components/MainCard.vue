@@ -17,7 +17,7 @@ export default {
 button {
     height: 80px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     width: 280px;
     border-radius: 12px;
     border: 0px solid;
