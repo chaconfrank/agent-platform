@@ -1,0 +1,63 @@
+{
+    "data": {
+        "title": "Low resolution",
+        "subTitle": "The quality can be bad because the quality of the file is also bad.",
+        "action": "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'",
+        "question": {
+            "text": "cPDF is high res?",
+            "options": [
+                {
+                    "class": "btnsecondary",
+                    "text": "No",
+                    "question": {
+                        "text": "Automatic art work check?",
+                        "action": "",
+                        "options": [
+                            {
+                                "text": "No",
+                                "question": {
+                                    "text": "Low resolution warning sent?",
+                                    "action": "Open the DTP Tab in presta & check “AutoCheck Artwork”box",
+                                    "options": [
+                                        {
+                                            "text": "No",
+                                            "question": {}
+                                        },
+                                        {
+                                            "text": "Yes",
+                                            "question": {}
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "text": "Yes",
+                                "action": "Open the DTP Tab in presta & check “AutoCheck Artwork”box",
+                                "question": {
+                                    "text": "Low resolution warning sent?",
+                                    "options": [
+                                        {
+                                            "text": "No",
+                                            "question": {}
+                                        },
+                                        {
+                                            "text": "Yes",
+                                            "question": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "class": "btnprimary",
+                    "text": "Yes",
+                    "question": {}
+                }
+            ]
+        }
+    },
+    "solution": "",
+    "action": "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'"
+}

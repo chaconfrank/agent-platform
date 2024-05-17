@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button>{{ msg }}</button>
+        <button :disabled=disabled>{{ msg }}</button>
     </div>
 </template>
 
@@ -8,7 +8,8 @@
 export default {
     name: 'MainCard',
     props: {
-        msg: String
+        msg: String,
+        disabled: Boolean
     }
 }
 </script>
@@ -23,6 +24,6 @@ button {
     border: 0px solid;
     background: #EAEFF5;
     padding: 5px 10px;
-    margin:0px 0px 40px 0px;
+    margin: 0px 0px 40px 0px;
 }
 </style>

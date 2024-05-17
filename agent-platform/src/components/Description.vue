@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <v-btn>
-            
+
         </v-btn>
         <h1>{{ $route.query.title }}</h1>
         <h4>{{ $route.query.description }}</h4>

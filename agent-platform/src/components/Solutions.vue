@@ -6,7 +6,7 @@
     <body>
         <div class="container">
             <div class="column">
-                <h1>Low resolution</h1>
+                <h1>{{ dato }}</h1>
                 <h2><span style="font-weight: bold; color: #E84E1E;">Action: </span> File the complaint in presta</h2>
                 <h2 class="valid-complaint-status">Valid complaint</h2>
             </div>
@@ -53,9 +53,11 @@
 
 <script>
 /* eslint-disable */
-
 export default {
-    name: 'solutions',
+    name: "solutions",
+    props: {
+        dato: String,
+    }
 }
 
 </script>

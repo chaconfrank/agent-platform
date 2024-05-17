@@ -11,11 +11,11 @@
         'The quality can be bad because the quality of the file is also bad.',
         'Compare the customers photo with the CPDF associated with their order.', 
         'Is the DPI of the file too low?','NO', 'YES')" 
-        msg="Low resolution"></MainCard>
+        msg="Low resolution" :disabled=false></MainCard>
 
-        <MainCard @click="toDescription('Uploaded a wrong artwork', 
-        'The quality can be bad because the quality of the file is also bad.')" 
-        msg="Uploaded a wrong artwork"></MainCard>
+        <MainCard @click="toDescription('CropMarks', 
+        'Sometimes crop marks can be seen on the end product. The issue could be coming from us or from our suppliers. Most of the time, this issue coes from a double set of cropmarks that was delivered in the print file.')" 
+        msg="CropMarks"></MainCard>
 
         <MainCard @click="toDescription('Print marks are printed on product', 
         'Write here the description')" 
