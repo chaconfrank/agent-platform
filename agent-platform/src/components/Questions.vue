@@ -52,12 +52,14 @@ export default {
                                                 {
                                                     "class": "btnsecondary",
                                                     "text": "No",
-                                                    "question": {}
+                                                    "question": {},
+                                                    "solution": {}
                                                 },
                                                 {
                                                     "class": "btnprimary",
                                                     "text": "Yes",
-                                                    "question": {}
+                                                    "question": {},
+                                                    "solution": {}
                                                 }
                                             ]
                                         },
@@ -72,12 +74,14 @@ export default {
                                                 {
                                                     "class": "btnsecondary",
                                                     "text": "No",
-                                                    "question": {}
+                                                    "question": {},
+                                                    "solution": {}
                                                 },
                                                 {
                                                     "class": "btnprimary",
                                                     "text": "Yes",
-                                                    "question": {}
+                                                    "question": {},
+                                                    "solution": {}
                                                 }
                                             ]
                                         },
@@ -90,9 +94,24 @@ export default {
                             "text": "Yes",
                             "question": {},
                             "solution": {
-                                "title": "Low",
-                                "action": "test",
+                                "title": "Low resolution",
+                                "action": "File the complaint in presta",
                                 "validComplaint": true,
+                                "questions": [
+                                    {
+                                        "title": "Is the DPI of the file too low?",
+                                        "isValid": true
+                                    },
+                                    {
+                                        "title": "Automatic art work check?",
+                                        "isValid": false
+                                    },
+                                    {
+                                        "title": "Did we send a low resolution warning to the customer before printing the order?",
+                                        "isValid": false
+                                    }
+
+                                ],
                                 "sumaries": [
                                     {
                                         "title": "Solution 1",

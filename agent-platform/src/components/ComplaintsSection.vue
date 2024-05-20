@@ -7,35 +7,22 @@
     </div>
     <div class="container">
       <div class="column">
-        <MainCard @click="toDescription('Low resolution', 
-        'The quality can be bad because the quality of the file is also bad.',
-        'Compare the customers photo with the CPDF associated with their order.', 
-        'Is the DPI of the file too low?','NO', 'YES')" 
-        msg="Low resolution" :disabled=false></MainCard>
-
-        <MainCard @click="toDescription('CropMarks', 
-        'Sometimes crop marks can be seen on the end product. The issue could be coming from us or from our suppliers. Most of the time, this issue coes from a double set of cropmarks that was delivered in the print file.')" 
-        msg="CropMarks"></MainCard>
-
-        <MainCard @click="toDescription('Print marks are printed on product', 
-        'Write here the description')" 
-        msg="Print marks are printed on product"></MainCard>
-
-        <MainCard @click="toDescription('The colour is different (CMYK)', 
-        'Write here the description')" 
-        msg="The colour is different (CMYK)"></MainCard>
+        <MainCard @click="toDescription()" msg="Low resolution" :disabled=false></MainCard>
+        <MainCard msg="CropMarks" :disabled=true></MainCard>
+        <MainCard msg="Print marks are printed on product" :disabled=true></MainCard>
+        <MainCard msg="The colour is different (CMYK)" :disabled=true></MainCard>
       </div>
       <div class="column">
-        <MainCard msg="The finishing is wrong"></MainCard>
-        <MainCard msg="I received the incorrect sizes of textile"></MainCard>
-        <MainCard msg="Customer received order from different customer"></MainCard>
-        <MainCard msg="Lost order"></MainCard>
+        <MainCard msg="The finishing is wrong" :disabled=true></MainCard>
+        <MainCard msg="I received the incorrect sizes of textile" :disabled=true></MainCard>
+        <MainCard msg="Customer received order from different customer" :disabled=true></MainCard>
+        <MainCard msg="Lost order" :disabled=true></MainCard>
       </div>
       <div class="column">
-        <MainCard msg="There are stains / smudges on my product"></MainCard>
-        <MainCard msg="Incomplete order / missing pieces"></MainCard>
-        <MainCard msg="Damaged product/order"></MainCard>
-        <MainCard msg="Order delayed"></MainCard>
+        <MainCard msg="There are stains / smudges on my product" :disabled=true></MainCard>
+        <MainCard msg="Incomplete order / missing pieces" :disabled=true></MainCard>
+        <MainCard msg="Damaged product/order" :disabled=true></MainCard>
+        <MainCard msg="Order delayed" :disabled=true></MainCard>
       </div>
     </div>
   </div>
@@ -52,15 +39,8 @@ export default {
     MainCard
   },
   methods: {
-    toDescription(title, description, action, question,btnsecondary, btnprimary) {
-      this.$router.push({ path: '/description', 
-      query: {
-      title, 
-      description, 
-      action, 
-      question,
-      btnsecondary,
-      btnprimary} });
+    toDescription() {
+      this.$router.push({ path: '/questions' });
     }
   }
 

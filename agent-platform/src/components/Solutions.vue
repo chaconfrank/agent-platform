@@ -1,54 +1,33 @@
 <template>
-
-    <head>
-    </head>
-
-    <body>
-        <div class="container">
-            <div class="column">
-                <h1> test</h1>
-                <h2><span style="font-weight: bold; color: #E84E1E;">Action: </span> File the complaint in presta</h2>
-                <h2 class="valid-complaint-status">Valid complaint</h2>
-            </div>
-            <div class="column">
-                <h3> Summary of questions</h3>
-                <h4>Is the DPI of the file too low? -<span style="font-weight: bold; color: #73C15A;"> Yes</span> </h4>
-                <h4>Automatic art work check? -<span style="font-weight: bold; color: #F11A1A;"> No</span> </h4>
-                <h4>Did we send a low resolution warning to the customer before printing the order? -
-                    <span style="font-weight: bold; color: #73C15A;"> Yes</span>
+    <div class="container">
+        <div class="column">
+            <h1> {{ parseSolution.title }}</h1>
+            <h2><span style="font-weight: bold; color: #E84E1E;">Action: </span> {{ parseSolution.action }}</h2>
+            <h2 v-if="parseSolution.validComplaint" class="valid-complaint-status">Valid complaint</h2>
+            <h2 v-else class="invalid-complaint-status">Invalid complaint</h2>
+        </div>
+        <div class="column">
+            <h3> Summary of questions</h3>
+            <div v-for="(question, index) in parseSolution.questions" :key="index">
+                <h4>{{ question.title }} -
+                    <span v-if="question.isValid" style="font-weight: bold; color: #73C15A;">Yes</span>
+                    <span v-else style="font-weight: bold; color: #F11A1A;">No</span>
                 </h4>
             </div>
         </div>
-        <h3> Summary of questions</h3>
-        <div class="solutions">
-            <p><span style="font-weight: bold; color: #222222;">Solution 1 </span></p>
-            <p>In consideration of the inconvenience caused, we can offer the customer a
-                10% discount code that can be applied to their next order. This discount serves
-                as a gesture of goodwill to express our commitment to customer satisfaction.</p>
+    </div>
+    <h3> Summary of questions</h3>
+    <div>
+        <div v-for="(summary, index) in parseSolution.sumaries" :key="index" class="solutions">
+            <p><span style="font-weight: bold; color: #222222;">{{ summary.title }} </span></p>
+            <p>{{ summary.description }}</p>
         </div>
-        <div class="solutions">
-            <p><span style="font-weight: bold; color: #222222;">What to say to the customer </span></p>
-            <p>I am sorry but you approved the proof despite being informed about the potential
-                risk of poor print quality. We warned you via email that there is a risk that it
-                will be printed badly. In consideration of the inconvenience caused,
-                we can offer you a 10% discount code that can be applied to the next order.
-                This discount serves as a gesture of goodwill to express our commitment to customer satisfaction.</p>
+    </div>
+    <div>
+        <div class="button-container">
+            <button class="btnprimary" @click="goToHome"> Back to homepage</button>
         </div>
-        <div>
-            <div class="button-container">
-                <button class="btnprimary" @click="goToHome"> Back to homepage</button>
-            </div>
-        </div>
-        <div class="container">
-            <div class="progress-container">
-                <div class="progress" id="progress">
-                    <div class="circle active"><i class="fab fa-html5"></i></div>
-                    <div class="circle active"><i class="fab fa-css3-alt"></i></div>
-                    <div class="circle active"><i class="fab fa-js"></i></div>
-                </div>
-            </div>
-        </div>
-    </body>
+    </div>
 </template>
 
 <script>
