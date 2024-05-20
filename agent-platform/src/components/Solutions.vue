@@ -36,7 +36,7 @@
         </div>
         <div>
             <div class="button-container">
-                <button class="btnprimary"> Back to homepage</button>
+                <button class="btnprimary" @click="goToHome"> Back to homepage</button>
             </div>
         </div>
         <div class="container">
@@ -56,16 +56,17 @@
 export default {
     name: "Solutions",
     props: {
-        dato: Object,
+        solutionInformation: Object,
     },
     computed: {
-        parsedDato() {
-            return JSON.parse(this.$route.query.dato);
+        parseSolution() {
+            return JSON.parse(this.$route.query.solutionInformation);
         }
     },
-    created() {
-        console.log('Route query dato:', this.$route.query.dato);
-        console.log('Parsed dato:', this.parsedDato);
+    methods: {
+        goToHome() {
+            this.$router.push({ name: 'ComplaintsSection' });
+        }
     }
 }
 

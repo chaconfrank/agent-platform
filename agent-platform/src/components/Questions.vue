@@ -1,24 +1,19 @@
 <template>
-    <div v-if="!solution">
-        <div class="header">
-            <h1>{{ data.title }}</h1>
-            <h4>{{ data.subTitle }}</h4>
-            <h3 v-if="action"><span style="font-weight: bold; color: #E84E1E;">Action: </span> {{ action }}</h3>
-        </div>
-        <div class="question">
-            <h1 class="question">{{ currentQuestion.text }}</h1>
-            <div v-if="!solution">
-                <div class="btn-container">
-                    <button :class="option.class" v-for="option in currentQuestion.options" :key="option.id"
-                        @click="answerQuestion(option)">
-                        {{ option.text }}
-                    </button>
-                </div>
+    <div class="header">
+        <h1>{{ data.title }}</h1>
+        <h4>{{ data.subTitle }}</h4>
+        <h3 v-if="action"><span style="font-weight: bold; color: #E84E1E;">Action: </span> {{ action }}</h3>
+    </div>
+    <div class="question">
+        <h1 class="question">{{ currentQuestion.text }}</h1>
+        <div v-if="!solution">
+            <div class="btn-container">
+                <button :class="option.class" v-for="option in currentQuestion.options" :key="option.id"
+                    @click="answerQuestion(option)">
+                    {{ option.text }}
+                </button>
             </div>
         </div>
-    </div>
-    <div v-else>
-        <Solutions dato="Ejemplo"></Solutions>
     </div>
 </template>
 
@@ -133,10 +128,9 @@ export default {
                 this.$router.push({
                     name: "Solutions",
                     query: {
-                        dato: JSON.stringify(option.solution)
+                        solutionInformation: JSON.stringify(option.solution)
                     }
                 });
-                //this.solution = option.solution
             }
         },
     }
