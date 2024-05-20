@@ -1,66 +1,32 @@
-<template>
-    <div v-if="!solution">
-        <div class="header">
-            <h1>{{ data.title }}</h1>
-            <h4>{{ data.subTitle }}</h4>
-            <h3 v-if="action"><span style="font-weight: bold; color: #E84E1E;">Action: </span> {{ action }}</h3>
-        </div>
-        <div class="question">
-            <h1 class="question">{{ currentQuestion.text }}</h1>
-            <div v-if="!solution">
-                <div class="btn-container">
-                    <button :class="option.class" v-for="option in currentQuestion.options" :key="option.id"
-                        @click="answerQuestion(option)">
-                        {{ option.text }}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div v-else>
-        <Solutions dato="Ejemplo"></Solutions>
-    </div>
-</template>
-
-<script>
-import Solutions from './Solutions.vue';
-
-/* eslint-disable */
-export default {
-    name: "Questions",
-    components: {
-        Solutions
-    },
-    data() {
+data() {
         return {
             data: {
-                "title": "Low resolution",
+                "title": "Cropmarks",
                 "subTitle": "The quality can be bad because the quality of the file is also bad.",
                 "action": "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'",
                 "question": {
-                    "text": "cPDF is high res?",
+                    "text": "Customer uploaded cropmarks?",
                     "options": [
                         {
-                            "class": "btnsecondary",
-                            "text": "No",
+                            "class": "btnprimary",
+                            "text": "Yes",
                             "question": {
                                 "text": "Automatic art work check?",
                                 "action": "",
                                 "options": [
-                                    {
+                                    {   
                                         "class": "btnsecondary",
                                         "text": "No",
                                         "question": {
-                                            "text": "Low resolution warning sent?",
-                                            "action": "Open the DTP Tab in presta & check “AutoCheck Artwork”box",
+                                            "text": "DTP imported to template correctly?",
+                                            "action": "",
                                             "options": [
                                                 {
                                                     "class": "btnsecondary",
                                                     "text": "No",
                                                     "question": {}
                                                 },
-                                                {
-                                                    "class": "btnprimary",
+                                                {   "class": "btnprimary",
                                                     "text": "Yes",
                                                     "question": {}
                                                 }
@@ -70,11 +36,11 @@ export default {
                                     {
                                         "class": "btnprimary",
                                         "text": "Yes",
-                                        "action": "Open the DTP Tab in presta & check “AutoCheck Artwork”box",
+                                        "action": "",
                                         "question": {
-                                            "text": "Low resolution warning sent?",
+                                            "text": "CPDF has double set of cropmarks?",
                                             "options": [
-                                                {
+                                                {   
                                                     "class": "btnsecondary",
                                                     "text": "No",
                                                     "question": {}
@@ -113,94 +79,3 @@ export default {
                     ]
                 }
             },
-            solution: "",
-            action: "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'"
-        };
-    },
-    computed: {
-        currentQuestion() {
-            return this.data.question;
-        }
-    },
-    methods: {
-        answerQuestion(option) {
-            this.data.question = option.question || {};
-            this.action = option.action !== "" ? option.action : "";
-
-
-            if (Object.keys(option.question).length === 0) {
-                console.info(JSON.stringify(option.solution))
-                this.$router.push({
-                    name: "Solutions",
-                    query: {
-                        dato: JSON.stringify(option.solution)
-                    }
-                });
-                //this.solution = option.solution
-            }
-        },
-    }
-};
-</script>
-
-<style scoped>
-.header {
-    margin: 80px 0 40px 0;
-    color: #222222;
-
-}
-
-h4 {
-    color: #757575;
-    font-weight: 500;
-    margin: 0 0 20px 0;
-}
-
-h3 {
-    color: #222;
-    font-weight: 500;
-}
-
-.question {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-.btnprimary {
-    background-color: #E84E1E;
-    color: white;
-    margin: 0 5px;
-    font-weight: 900;
-    border-radius: 12px;
-    border: none;
-    font-size: 24px;
-    padding: 16px 24px;
-    text-align: center;
-    width: auto;
-}
-
-.btnprimary:hover {
-    background-color: #F25C2D;
-    color: #FBFBFB;
-}
-
-.btnsecondary {
-    background-color: white;
-    margin: 0 5px;
-    color: black;
-    font-weight: 900;
-    border-radius: 12px;
-    border: 2px solid black;
-    font-size: 24px;
-    padding: 16px 24px;
-    text-align: center;
-    width: auto;
-}
-
-.btnsecondary:hover {
-    background-color: #F4F4F4;
-    color: black;
-}
-</style>

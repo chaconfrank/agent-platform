@@ -6,7 +6,7 @@
     <body>
         <div class="container">
             <div class="column">
-                <h1>{{ dato }}</h1>
+                <h1> test</h1>
                 <h2><span style="font-weight: bold; color: #E84E1E;">Action: </span> File the complaint in presta</h2>
                 <h2 class="valid-complaint-status">Valid complaint</h2>
             </div>
@@ -54,9 +54,18 @@
 <script>
 /* eslint-disable */
 export default {
-    name: "solutions",
+    name: "Solutions",
     props: {
-        dato: String,
+        dato: Object,
+    },
+    computed: {
+        parsedDato() {
+            return JSON.parse(this.$route.query.dato);
+        }
+    },
+    created() {
+        console.log('Route query dato:', this.$route.query.dato);
+        console.log('Parsed dato:', this.parsedDato);
     }
 }
 
