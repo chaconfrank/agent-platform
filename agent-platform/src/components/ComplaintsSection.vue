@@ -5,7 +5,7 @@
   </div>
   <div class="container">
     <div class="column">
-      <MainCard @click="toDescription()" msg="Low resolution" :disabled=false></MainCard>
+      <MainCard @click="toQuestion()" msg="Low resolution" :disabled=false></MainCard>
       <MainCard @click="toCropmarks()" msg="CropMarks" :disabled=false></MainCard>
       <MainCard msg="Print marks are printed on product" :disabled=true></MainCard>
       <MainCard msg="The colour is different (CMYK)" :disabled=true></MainCard>
@@ -35,7 +35,7 @@ export default {
     MainCard
   },
   methods: {
-    toDescription() {
+    toQuestion() {
       this.$router.push({ path: '/questions' });
     },
     toCropmarks() {

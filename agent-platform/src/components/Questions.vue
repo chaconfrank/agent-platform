@@ -2,23 +2,22 @@
     <div class="header">
         <h1>{{ data.title }}</h1>
         <h4>{{ data.subTitle }}</h4>
-        <h3 v-if="action"><span style="font-weight: bold; color: #222222;">Action: </span> {{ action }}</h3>
+        <h3 v-if="this.action"><span style="font-weight: bold; color: #222222;">Action: </span> {{ this.action }}</h3>
     </div>
     <div class="question">
-        <h1 class="question">{{ currentQuestion.text }}</h1>
-        <div v-if="!solution">
-            <div class="btn-container">
-                <button :class="option.class" v-for="option in currentQuestion.options" :key="option.id"
-                    @click="answerQuestion(option)">
-                    {{ option.text }}
-                </button>
-            </div>
+        <h1 class="question">{{ question.text }}</h1>
+        <div class="btn-container">
+            <button :class="option.class" v-for="option in this.question.options" :key="option.id"
+                @click="answerQuestion(option)">
+                {{ option.text }}
+            </button>
         </div>
     </div>
 </template>
 
 <script>
 import Solutions from './Solutions.vue';
+import data from '@/assets/low-resolution.json';
 
 /* eslint-disable */
 export default {
@@ -28,242 +27,36 @@ export default {
     },
     data() {
         return {
-            data: {
-                "title": "Low resolution",
-                "subTitle": "The quality can be bad because the quality of the file is also bad.",
-                "action": "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'",
-                "question": {
-                    "text": "cPDF is high res?",
-                    "options": [
-                        {
-                            "class": "btnsecondary",
-                            "text": "No",
-                            "question": {
-                                "text": "Automatic art work check?",
-                                "options": [
-                                    {
-                                        "class": "btnsecondary",
-                                        "text": "No",
-                                        "question": {
-                                            "text": "Low resolution warning sent?",
-                                            "action": "Open the DTP Tab in Presta & check 'AutoCheck Artwork' box. ",
-                                            "options": [
-                                                {
-                                                    "class": "btnsecondary",
-                                                    "text": "No",
-                                                    "question": {},
-                                                    "solution": {
-                                                        "title": "Low resolution",
-                                                        "action": "File the complaint in presta",
-                                                        "validComplaint": true,
-                                                        "questions": [
-                                                            {
-                                                                "title": "cPDF is high res?",
-                                                                "isValid": false
-                                                            },
-                                                            {
-                                                                "title": "Automatic art work check?",
-                                                                "isValid": false
-                                                            },
-                                                            {
-                                                                "title": "Low resolution warning sent?",
-                                                                "isValid": false
-                                                            }
-                                                        ],
-                                                        "sumaries": [
-                                                            {
-                                                                "title": "Solution",
-                                                                "description": "Since it's our fault we didn't sent a warning, we have to make up with it by offering a reprint or a refund."
-                                                            },
-                                                            {
-                                                                "title": "What to say to the customer",
-                                                                "description": "I see the file you uploaded has a low resolution. Our team should have sent you an email about the risk. For the inconvenience, I would like to offer you a reprint of the order. In this case, we will need a good file from you with good resolution. Could you provide us with a file that meets the necessary resolution requirements? If you can't use the reprint because it will be too late, I can offer you a refund on this order. Turn on screen reader support"
-                                                                // Agregar espaciado
-                                                            },
-                                                            {
-                                                                "title": "Log in Presta",
-                                                                "description": "Artwork - Manual Checked, No Warning Sent"
-                                                                // Agregar espaciado
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "class": "btnprimary",
-                                                    "text": "Yes",
-                                                    "question": {},
-                                                    // No hace falta mostrar la acción, se sigue mostrando
-                                                    "solution": {
-                                                        "title": "Low resolution",
-                                                        "validComplaint": false,
-                                                        "questions": [
-                                                            {
-                                                                "title": "cPDF is high res?",
-                                                                "isValid": false
-                                                            },
-                                                            {
-                                                                "title": "Automatic art work check?",
-                                                                "isValid": false
-                                                            },
-                                                            {
-                                                                "title": "Low resolution warning sent?",
-                                                                "isValid": true
-                                                            }
-                                                        ],
-                                                        "sumaries": [
-                                                            {
-                                                                "title": "Solution",
-                                                                "description": "The customer approved the file even when we stated there was a risk that the quality of the print is going to be bad."
-                                                            },
-                                                            {// Agregar color al first time
-                                                                "title": "What to say to the customer - First time CMR or cheap order",
-                                                                "description": "As a special consideration for being a first-time customer, we understand that you may not have been fully aware of our processes. As an exception, we would like to offer you a free reprint of your order. However, we kindly request that you provide us with a new design that does not include low resolution. This gesture is intended to ensure your satisfaction and demonstrate our commitment to delivering the best possible product."
-
-                                                            },
-                                                            {
-                                                                "title": "What to say to the customer",
-                                                                "description": "I am sorry but you approved the proof despite being informed about the potential risk of poor print quality. We warned you via email that there is a risk that it will be printed badly. In consideration of the inconvenience caused, we can offer you a 10% discount code that can be applied to the next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
-
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                    },
-                                    {
-                                        "class": "btnprimary",
-                                        "text": "Yes",
-                                        "action": "Open the DTP Tab in presta & check “AutoCheck Artwork” box",
-                                        "question": {
-                                            "text": "Low resolution warning sent?",
-                                            "options": [
-                                                {
-                                                    "class": "btnsecondary",
-                                                    "text": "No",
-                                                    "question": {},
-                                                    "solution": {
-                                                        "title": "Low resolution",
-                                                        "action": "File the complaint in presta",
-                                                        "validComplaint": true,
-                                                        "questions": [
-                                                            {
-                                                                "title": "cPDF is high res?",
-                                                                "isValid": false
-                                                            },
-                                                            {
-                                                                "title": "Automatic art work check?",
-                                                                "isValid": true
-                                                            },
-                                                            {
-                                                                "title": "Did we send a low resolution warning to the customer before printing the order?",
-                                                                "isValid": false
-                                                            }
-                                                        ],
-                                                        "sumaries": [
-                                                            {
-                                                                "title": "Solution",
-                                                                "description": "since it's our fault we didn't sent a warning, we have to make up with it by offering a reprint or a refund."
-                                                            },
-                                                            {
-                                                                "title": "What to say to the customer",
-                                                                "description": "I see the file you uploaded has a low resolution. Our autocheck should have sent you an email about the risk. For the inconvenience, I would like to offer you a reprint of the order. In this case, we will need a good file from you with good resolution. Could you provide us with a file that meets the necessary resolution requirements? If you can't use the reprint because it will be too late, I can offer you a refund on this order."
-                                                                // Agregar espaciado
-                                                            },
-                                                            {
-                                                                "title": "Log in Presta",
-                                                                "description": "Artwork - Automatic Checked, Autocheck - No Warning Given"
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "class": "btnprimary",
-                                                    "text": "Yes",
-                                                    "question": {},
-                                                    "solution": {
-                                                        "title": "Low resolution",
-                                                        "validComplaint": false,
-                                                        "questions": [
-                                                            {
-                                                                "title": "cPDF is high res?",
-                                                                "isValid": false
-                                                            },
-                                                            {
-                                                                "title": "Automatic art work check?",
-                                                                "isValid": true
-                                                            },
-                                                            {
-                                                                "title": "Did we send a low resolution warning to the customer before printing the order?",
-                                                                "isValid": true
-                                                            }
-                                                        ],
-                                                        "sumaries": [
-                                                            {
-                                                                "title": "Solution",
-                                                                "description": "The customer approved the file even when we stated there was a risk that the quality of the print is going to be bad."
-                                                            },
-                                                            {// Agregar color al first time
-                                                                "title": "What to say to the customer - First time CMR or cheap order",
-                                                                "description": "As a special consideration for being a first-time customer, we understand that you may not have been fully aware of our processes. As an exception, we would like to offer you a free reprint of your order. However, we kindly request that you provide us with a new design that does not include low resolution. This gesture is intended to ensure your satisfaction and demonstrate our commitment to delivering the best possible product."
-                                                            },
-                                                            {
-                                                                "title": "What to say to the customer",
-                                                                "description": "I am sorry but you approved the proof despite being informed about the potential risk of poor print quality. We warned you via email that there is a risk that it will be printed badly. In consideration of the inconvenience caused, we can offer you a 10% discount code that can be applied to the next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
-                                                                // Agregar espaciado
-                                                            },
-
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "class": "btnprimary",
-                            "text": "Yes",
-                            "question": {},
-                            "solution": {
-                                "title": "Low resolution",
-                                "action": "File the complaint in presta",
-                                "validComplaint": true,
-                                "questions": [
-                                    {
-                                        "title": "Is the DPI of the file too low?",
-                                        "isValid": true
-                                    },
-
-                                ],
-                                "sumaries": [
-                                    {
-                                        "title": "Solution",
-                                        "description": "In consideration of the inconvenience caused, we can offer the customer a 10% discount code that can be applied to their next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
-                                    },
-                                    {
-                                        "title": "What to say to the customer",
-                                        "description": "I am sorry but you approved the proof despite being informed about the potential risk of poor print quality. We warned you via email that there is a risk that it will be printed badly. In consideration of the inconvenience caused, we can offer you a 10% discount code that can be applied to the next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            solution: "",
-            action: "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'"
+            questionId: null,
+            data: {},
+            action: "",
+            question: {}
         };
     },
-    computed: {
-        currentQuestion() {
-            return this.data.question;
-        }
+    created() {
+        this.loadData('low-resolution')
+            .then(data => {
+                this.data = data;
+                this.action = this.data.action;
+                this.question = this.data.question;
+            })
+            .catch(error => {
+                console.error('Error loading JSON:', error);
+            });
     },
     methods: {
+        loadData(fileName) {
+            return import(`@/assets/${fileName}.json`)
+                .then(module => {
+                    return module.default;
+                })
+                .catch(error => {
+                    console.error(`Error loading ${fileName}:`, error);
+                    throw error;
+                });
+        },
         answerQuestion(option) {
-            this.data.question = option.question || {};
+            this.question = option.question || {};
             this.action = option.action !== "" ? option.action : "";
 
 
