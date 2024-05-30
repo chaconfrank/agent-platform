@@ -2,7 +2,7 @@
     <div class="container">
         <div class="column">
             <h1> {{ parseSolution.title }}</h1>
-            <h2><span style="font-weight: bold; color: #E84E1E;">Action: </span> {{ parseSolution.action }}</h2>
+            <h2><span style="font-weight: bold; color: #222222;">Action: </span> {{ parseSolution.action }}</h2>
             <h2 v-if="parseSolution.validComplaint" class="valid-complaint-status">Valid complaint</h2>
             <h2 v-else class="invalid-complaint-status">Invalid complaint</h2>
         </div>
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <h3> Summary of questions</h3>
+    <h3>Solutions and next steps</h3>
     <div>
         <div v-for="(summary, index) in parseSolution.sumaries" :key="index" class="solutions">
             <p><span style="font-weight: bold; color: #222222;">{{ summary.title }} </span></p>
@@ -54,14 +54,14 @@ export default {
 h1 {
     color: #222222;
     font-size: 46px;
-    font-weight: 400;
+    font-weight: 500;
     margin: 0;
 }
 
 h2 {
     color: #222222;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 h3 {
@@ -92,7 +92,7 @@ h4 {
 .solutions {
     flex: 1;
     background-color: #F8F8F8;
-    padding: 32px;
+    padding: 12px 24px;
     margin: 20px 0 20px 0;
     border-radius: 12px;
 }
@@ -138,5 +138,10 @@ h4 {
     padding: 16px 24px;
     text-align: center;
     width: auto;
+}
+
+.btnprimary:hover {
+    background-color: #F25C2D;
+    color: #FBFBFB;
 }
 </style>

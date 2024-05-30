@@ -17,8 +17,7 @@
     </div>
 </template>
 
-<script>
-import Solutions from './Solutions.vue';
+<script>import Solutions from './Solutions.vue';
 
 /* eslint-disable */
 export default {
@@ -29,23 +28,23 @@ export default {
     data() {
         return {
             data: {
-                "title": "Low resolution",
-                "subTitle": "The quality can be bad because the quality of the file is also bad.",
+                "title": "Cropmarks",
+                "subTitle": "Sometimes crop marks can be seen on the end product. The issue could be coming from us or from our suppliers. Most of the time, this issue coes from a double set of cropmarks that was delivered in the print file.",
                 "action": "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'",
                 "question": {
-                    "text": "cPDF is high res?",
+                    "text": "Customer uploaded cropmarks?",
                     "options": [
                         {
-                            "class": "btnsecondary",
-                            "text": "No",
+                            "class": "btnprimary",
+                            "text": "Yes",
                             "question": {
-                                "text": "Automatic art work check?",
+                                "text": "Customer uploaded cropmarks?",
                                 "options": [
                                     {
-                                        "class": "btnsecondary",
-                                        "text": "No",
+                                        "class": "btnprimary",
+                                        "text": "Yes",
                                         "question": {
-                                            "text": "Low resolution warning sent?",
+                                            "text": "Automatic art work check?",
                                             "action": "Open the DTP Tab in Presta & check 'AutoCheck Artwork' box. ",
                                             "options": [
                                                 {
@@ -223,30 +222,15 @@ export default {
                             }
                         },
                         {
-                            "class": "btnprimary",
-                            "text": "Yes",
-                            "question": {},
-                            "solution": {
-                                "title": "Low resolution",
-                                "action": "File the complaint in presta",
-                                "validComplaint": true,
-                                "questions": [
-                                    {
-                                        "title": "Is the DPI of the file too low?",
-                                        "isValid": true
-                                    },
+                            "class": "btnsecondary",
+                            "text": "No",
+                            "question": {
+                                "text": "",
+                                "options": 
+                                {  
 
-                                ],
-                                "sumaries": [
-                                    {
-                                        "title": "Solution",
-                                        "description": "In consideration of the inconvenience caused, we can offer the customer a 10% discount code that can be applied to their next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
-                                    },
-                                    {
-                                        "title": "What to say to the customer",
-                                        "description": "I am sorry but you approved the proof despite being informed about the potential risk of poor print quality. We warned you via email that there is a risk that it will be printed badly. In consideration of the inconvenience caused, we can offer you a 10% discount code that can be applied to the next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
-                                    }
-                                ]
+                                },
+
                             }
                         }
                     ]

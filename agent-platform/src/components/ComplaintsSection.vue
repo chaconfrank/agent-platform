@@ -1,32 +1,28 @@
 <template>
   <div>
-
-    <div>
-      <h1>Complaints</h1>
-      <h3>Select one to start</h3>
+    <h1>Complaints</h1>
+    <h3>Select one to start</h3>
+  </div>
+  <div class="container">
+    <div class="column">
+      <MainCard @click="toDescription()" msg="Low resolution" :disabled=false></MainCard>
+      <MainCard @click="toCropmarks()" msg="CropMarks" :disabled=false></MainCard>
+      <MainCard msg="Print marks are printed on product" :disabled=true></MainCard>
+      <MainCard msg="The colour is different (CMYK)" :disabled=true></MainCard>
     </div>
-    <div class="container">
-      <div class="column">
-        <MainCard @click="toDescription()" msg="Low resolution" :disabled=false></MainCard>
-        <MainCard msg="CropMarks" :disabled=true></MainCard>
-        <MainCard msg="Print marks are printed on product" :disabled=true></MainCard>
-        <MainCard msg="The colour is different (CMYK)" :disabled=true></MainCard>
-      </div>
-      <div class="column">
-        <MainCard msg="The finishing is wrong" :disabled=true></MainCard>
-        <MainCard msg="I received the incorrect sizes of textile" :disabled=true></MainCard>
-        <MainCard msg="Customer received order from different customer" :disabled=true></MainCard>
-        <MainCard msg="Lost order" :disabled=true></MainCard>
-      </div>
-      <div class="column">
-        <MainCard msg="There are stains / smudges on my product" :disabled=true></MainCard>
-        <MainCard msg="Incomplete order / missing pieces" :disabled=true></MainCard>
-        <MainCard msg="Damaged product/order" :disabled=true></MainCard>
-        <MainCard msg="Order delayed" :disabled=true></MainCard>
-      </div>
+    <div class="column">
+      <MainCard msg="The finishing is wrong" :disabled=true></MainCard>
+      <MainCard msg="I received the incorrect sizes of textile" :disabled=true></MainCard>
+      <MainCard msg="Customer received order from different customer" :disabled=true></MainCard>
+      <MainCard msg="Lost order" :disabled=true></MainCard>
+    </div>
+    <div class="column">
+      <MainCard msg="There are stains / smudges on my product" :disabled=true></MainCard>
+      <MainCard msg="Incomplete order / missing pieces" :disabled=true></MainCard>
+      <MainCard msg="Damaged product/order" :disabled=true></MainCard>
+      <MainCard msg="Order delayed" :disabled=true></MainCard>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -41,10 +37,13 @@ export default {
   methods: {
     toDescription() {
       this.$router.push({ path: '/questions' });
+    },
+    toCropmarks() {
+      this.$router.push({ path: '/cropmarks' });
     }
   }
-
 }
+
 </script>
 
 <style scoped>
