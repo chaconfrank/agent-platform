@@ -2,7 +2,7 @@
     <div class="container">
         <div class="column">
             <h1> {{ parseSolution.title }}</h1>
-            <h2><span style="font-weight: bold; color: #222222;">Action: </span> {{ parseSolution.action }}</h2>
+            <h2 v-if="parseSolution.action"><span style="font-weight: bold; color: #222222;">Action: </span> {{ parseSolution.action }}</h2>
             <h2 v-if="parseSolution.validComplaint" class="valid-complaint-status">Valid complaint</h2>
             <h2 v-else class="invalid-complaint-status">Invalid complaint</h2>
         </div>

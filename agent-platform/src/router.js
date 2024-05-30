@@ -8,8 +8,6 @@ const routes = [
     { path: '/', name: "ComplaintsSection", component: ComplaintsSection },
     { path: '/questions/:id', name: "Questions", component: Questions },
     { path: '/solutions', name: "Solutions", component: Solutions, props: route => ({ solutionInformation: route.query.dato }) },
-    { path: '/cropmarks', name: "Cropmarks", component: () => import('./components/Cropmarks.vue') }
-
 ]
 
 const router = createRouter({

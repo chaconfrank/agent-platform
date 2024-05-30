@@ -6,8 +6,8 @@
   <div class="container">
     <div class="column">
       <MainCard @click="toQuestion('low-resolution')" msg="Low resolution" :disabled=false></MainCard>
-      <MainCard @click="toCropmarks()" msg="CropMarks" :disabled=false></MainCard>
-      <MainCard msg="Print marks are printed on product" :disabled=true></MainCard>
+      <MainCard @click="toQuestion('cropmarks')" msg="CropMarks" :disabled=false></MainCard>
+      <MainCard @click="toQuestion('colour-deviation')" msg="Print marks are printed on product" :disabled=false></MainCard>
       <MainCard msg="The colour is different (CMYK)" :disabled=true></MainCard>
     </div>
     <div class="column">
@@ -37,9 +37,6 @@ export default {
   methods: {
     toQuestion(questionId) {
       this.$router.push({ path: '/questions/' + questionId });
-    },
-    toCropmarks() {
-      this.$router.push({ path: '/cropmarks' });
     }
   }
 }

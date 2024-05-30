@@ -59,7 +59,7 @@ export default {
     },
     methods: {
         loadData(fileName) {
-            return import(`@/assets/${fileName}.json`)
+            return import(`@/solutions/${fileName}.json`)
                 .then(module => {
                     return module.default;
                 })
