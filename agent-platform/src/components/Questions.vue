@@ -1,23 +1,34 @@
 <template>
-    <div class="header">
-        <h1>{{ data.title }}</h1>
-        <h4>{{ data.subTitle }}</h4>
-        <h3 v-if="this.action"><span style="font-weight: bold; color: #222222;">Action: </span> {{ this.action }}</h3>
+
+    <div v-if="this.invalidQuestion === false">
+
+        <div class="header">
+            <h1>{{ data.title }}</h1>
+            <h4>{{ data.subTitle }}</h4>
+            <h3 v-if="this.action"><span style="font-weight: bold; color: #222222;">Action: </span> {{ this.action }}
+            </h3>
+        </div>
+        <div class="question">
+            <h1 class="question">{{ question.text }}</h1>
+            <div class="btn-container">
+                <button :class="option.class" v-for="option in this.question.options" :key="option.id"
+                    @click="answerQuestion(option)">
+                    {{ option.text }}
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="question">
-        <h1 class="question">{{ question.text }}</h1>
-        <div class="btn-container">
-            <button :class="option.class" v-for="option in this.question.options" :key="option.id"
-                @click="answerQuestion(option)">
-                {{ option.text }}
-            </button>
+    <div v-else>
+        <h1>Error</h1>
+        <h3>The question does not exist, please go back to the main page.</h3>
+        <div class="button-container">
+            <button class="btnprimary" @click="goToHome"> Back to homepage</button>
         </div>
     </div>
 </template>
 
 <script>
 import Solutions from './Solutions.vue';
-import data from '@/assets/low-resolution.json';
 
 /* eslint-disable */
 export default {
@@ -27,6 +38,7 @@ export default {
     },
     data() {
         return {
+            invalidQuestion: false,
             questionId: null,
             data: {},
             action: "",
@@ -34,13 +46,14 @@ export default {
         };
     },
     created() {
-        this.loadData('low-resolution')
+        this.loadData(this.$route.params.id)
             .then(data => {
                 this.data = data;
                 this.action = this.data.action;
                 this.question = this.data.question;
             })
             .catch(error => {
+                this.invalidQuestion = true;
                 console.error('Error loading JSON:', error);
             });
     },
@@ -70,6 +83,9 @@ export default {
                 });
             }
         },
+        goToHome() {
+            this.$router.push({ name: 'ComplaintsSection' });
+        }
     }
 };
 </script>
