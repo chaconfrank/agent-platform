@@ -1,19 +1,19 @@
 {
     "title": "Colour deviation",
     "subTitle": "Colours in CMYK printing can vary because of a few factors: Ink quality, paper type, calibration issues, environmental factors, human error. We aim for colours not to deviate over 10% from the cPDF.",
+    "action": "Open both customers file and the cPDF and compare.",
     "question": {
-        "action": "Open both customers file and the cPDF and compare.",
         "text": "Colours change from CMR file to cPDF? ",
         "options": [
             {
-                "class": "btnsecundary",
+                "class": "btnsecondary",
                 "text": "No",
+                "action": "Place the customers picture next to the cPDF and compare.If in doubt place in illustrator & use the eyedrop tool to compare colour values.",
                 "question": {
-                    "action": "Place the customers picture next to the cPDF and compare.If in doubt place in illustrator & use the eyedrop tool to compare colour values.",
-                    "text": "Visually over 10%? IF DOUBT: Check the Colour Profiles Check the colour values in Acrobat (Output Preview) Ask for more evidence Check with supplierCheck with Quinten, Rafa, Miguel",
+                    "text": "Visually over 10%? <br><span style='color: #757575; font-size: 20px; font-weight: normal; display: block; text-align: center; margin-top: 10px; margin-bottom: 10px;'>IF DOUBT: Check the Colour Profiles, Check the colour values in Acrobat (Output Preview), Ask for more evidence, Check with supplier, Check with Quinten, Rafa, Miguel</span>",
                     "options": [
                         {
-                            "class": "btnsecundary",
+                            "class": "btnsecondary",
                             "text": "No",
                             "solution": {
                                 "title": "Colour deviation",
@@ -28,7 +28,7 @@
                                         "isValid": false
                                     }
                                 ],
-                                "sumaries": [
+                                "summaries": [
                                     {
                                         "title": "Solution",
                                         "description": "The colours do not deviate enough for us to validate the complaint. The customer is to use the product as printed. If the customer needs the colours to be correct, you can place a discount on a PMS order."
@@ -46,7 +46,7 @@
                             "solution": {
                                 "title": "Colour deviation",
                                 "action": "File the complaint in Presta.",
-                                "validComplaint": false,
+                                "validComplaint": true,
                                 "questions": [
                                     {
                                         "title": "Colours change from CMR file to cPDF?",
@@ -57,14 +57,19 @@
                                         "isValid": true
                                     }
                                 ],
-                                "sumaries": [
+                                "summaries": [
                                     {
                                         "title": "Solution",
                                         "description": "The supplier mixed the inks incorrectly and they deviated over 10% from the cPDF. A reprint can be processed with the same file as approved."
                                     },
                                     {
                                         "title": "What to say to the customer",
-                                        "description": "It seems the colours have deviated over 10%, this could have been caused because of multiple reasons: Ink quality, paper type, calibration issues, environmental factors, human error. We would like to offer to reprint the product with the same file. If no time for a reprint, could you use this product at a discount?It seems the colours have deviated over 10%, this could have been caused because of multiple reasons: Ink quality, paper type, calibration issues, environmental factors, human error. We would like to offer to reprint the product with the same file. If no time for a reprint, could you use this product at a discount?"
+                                        "description": "It seems the colours have deviated over 10%, this could have been caused because of multiple reasons: Ink quality, paper type, calibration issues, environmental factors, human error. We would like to offer to reprint the product with the same file. If no time for a reprint, could you use this product at a discount?"
+                                    }
+                                    ,
+                                    {
+                                        "title": "Log in Presta",
+                                        "description": "Supplier - Quality Wrong / Deviating Colours"
                                     }
                                 ]
                             }
@@ -75,18 +80,18 @@
             {
                 "class": "btnprimary",
                 "text": "Yes",
+                "action": "Check the log in the DTP tab and look for a 'Artwork Warning - Colours FIXED' warning.",
                 "question": {
-                    "action": "Check the log in the DTP tab and look for a 'Artwork Warning - Colours FIXED' warning.",
                     "text": "DTP Warning sent?",
                     "options": [
                         {
-                            "class": "btnsecundary",
+                            "class": "btnsecondary",
                             "text": "No",
                             "question": {
                                 "text": "Automatic artwork check?",
                                 "options": [
                                     {
-                                        "class": "btnsecundary",
+                                        "class": "btnsecondary",
                                         "text": "No",
                                         "solution": {
                                             "title": "Colour deviation",
@@ -106,7 +111,7 @@
                                                     "isValid": false
                                                 }
                                             ],
-                                            "sumaries": [
+                                            "summaries": [
                                                 {
                                                     "title": "Solution",
                                                     "description": "We altered the colours from the original design but did not warn the customer, this indicates a lack of attention on our end. The agent should have reviewed the altered colours. We can reprint with a fixed CMYK / PMS file from the customer or they can use the current order at a discount."
@@ -117,7 +122,7 @@
                                                 },
                                                 {
                                                     "title": "Log in Presta",
-                                                    "description": "Artwork - Manual Checked Agent mistake - No Warning Sent"
+                                                    "description": "Artwork - Manual Checked / Agent mistake - No Warning Sent"
                                                 }
                                             ]
                                         }
@@ -143,7 +148,7 @@
                                                     "isValid": true
                                                 }
                                             ],
-                                            "sumaries": [
+                                            "summaries": [
                                                 {
                                                     "title": "Solution",
                                                     "description": "Autocheck can not yet send warnings when colours have been altered. Since the customer was not informed we can reprint with a fixed CMYK / PMS file from the customer or they can use the current order at a discount."
@@ -154,7 +159,7 @@
                                                 },
                                                 {
                                                     "title": "Log in Presta",
-                                                    "description": "Artwork - Automatic Checked Autocheck - No Warning Given"
+                                                    "description": "Artwork - Automatic Checked / Autocheck - No Warning Given"
                                                 }
                                             ]
                                         }
@@ -165,19 +170,19 @@
                         {
                             "class": "btnprimary",
                             "text": "Yes",
+                            "action": "Check in 'Output Preview' on Acrobat to see if there's spot plates in the list.",
                             "question": {
-                                "action": "Check in 'Output Preview' on Acrobat to see if there's spot plates in the list.",
                                 "text": "PMS Order?",
                                 "options": [
                                     {
-                                        "class": "btnsecundary",
+                                        "class": "btnsecondary",
                                         "action": "Place the customers picture next to the cPDF and compare.If in doubt place in illustrator & use the eyedrop tool to compare colour values.",
                                         "text": "No",
                                         "question": {
-                                            "text": "Visually over 10%?  IF DOUBT: Check the Colour Profiles Check the colour values in Acrobat (Output Preview) Ask for more evidence Check with supplier Check with Quinten, Rafa, Miguel",
+                                            "text": "Visually over 10%? <br><span style='color: #757575; font-size: 20px; font-weight: normal; display: block; text-align: center; margin-top: 10px; margin-bottom: 10px;'>IF DOUBT: Check the Colour Profiles, Check the colour values in Acrobat (Output Preview), Ask for more evidence, Check with supplier, Check with Quinten, Rafa, Miguel</span>",
                                             "options": [
                                                 {
-                                                    "class": "btnsecundary",
+                                                    "class": "btnsecondary",
                                                     "text": "No",
                                                     "solution": {
                                                         "title": "Colour deviation",
@@ -201,7 +206,7 @@
                                                                 "isValid": false
                                                             }
                                                         ],
-                                                        "sumaries": [
+                                                        "summaries": [
                                                             {
                                                                 "title": "Solution",
                                                                 "description": "The colours do not deviate enough for us to validate the complaint. The customer is to use the product as printed. If the customer needs the colours to be correct, you can place a discount on a PMS order."
@@ -219,7 +224,7 @@
                                                     "solution": {
                                                         "title": "Colour deviation",
                                                         "action": "File the complaint in Presta.",
-                                                        "validComplaint": false,
+                                                        "validComplaint": true,
                                                         "questions": [
                                                             {
                                                                 "title": "Colours change from CMR file to cPDF?",
@@ -238,7 +243,7 @@
                                                                 "isValid": true
                                                             }
                                                         ],
-                                                        "sumaries": [
+                                                        "summaries": [
                                                             {
                                                                 "title": "Solution",
                                                                 "description": "The supplier mixed the inks incorrectly and they deviated over 10% from the cPDF. A reprint can be processed with the same file as approved."
@@ -249,7 +254,7 @@
                                                             },
                                                             {
                                                                 "title": "Log in Presta",
-                                                                "description": "Supplier - Quality Wrong Deviating Colours"
+                                                                "description": "Supplier - Quality Wrong / Deviating Colours"
                                                             }
                                                         ]
                                                     }
@@ -278,7 +283,7 @@
                                                     "isValid": true
                                                 }
                                             ],
-                                            "sumaries": [
+                                            "summaries": [
                                                 {
                                                     "title": "Solution",
                                                     "description": "PMS colours are inks that are premade and should always have the same colour. If a colour deviation is apparent on a PMS order it means the supplier did not use the correct pot. Hence you can reprint with the same file (correct PMS colours)."
@@ -289,7 +294,7 @@
                                                 },
                                                 {
                                                     "title": "Log in Presta",
-                                                    "description": "Supplier - Quality Wrong Deviating Colours"
+                                                    "description": "Supplier - Quality Wrong / Deviating Colours"
                                                 }
                                             ]
                                         }

@@ -1,6 +1,6 @@
 {
-    "title": "Low resolution",
-    "subTitle": "The quality can be bad because the quality of the file is also bad.",
+    "title": "Resolution",
+    "subTitle": "Print quality might be low because the files DPI is below  recommendation",
     "action": "Compare the customer's photo with the CPDF associated with their order by running Preflight 'HelloCheck'",
     "question": {
         "text": "cPDF is high res?",
@@ -9,21 +9,20 @@
                 "class": "btnsecondary",
                 "text": "No",
                 "question": {
-                    "text": "Automatic art work check?",
+                    "text": "Automatic artwork check?",
                     "options": [
                         {
                             "class": "btnsecondary",
                             "text": "No",
+                            "action": "Open the DTP Tab in Presta & check 'AutoCheck Artwork' box.",
                             "question": {
                                 "text": "Low resolution warning sent?",
-                                "action": "Open the DTP Tab in Presta & check 'AutoCheck Artwork' box. ",
                                 "options": [
                                     {
                                         "class": "btnsecondary",
                                         "text": "No",
-                                        "question": {},
                                         "solution": {
-                                            "title": "Low resolution",
+                                            "title": "Resolution",
                                             "action": "File the complaint in presta",
                                             "validComplaint": true,
                                             "questions": [
@@ -51,7 +50,7 @@
                                                 },
                                                 {
                                                     "title": "Log in Presta",
-                                                    "description": "Artwork - Manual Checked, No Warning Sent"
+                                                    "description": "Artwork - Manual Checked / No Warning Sent"
                                                 }
                                             ]
                                         }
@@ -61,7 +60,7 @@
                                         "text": "Yes",
                                         "question": {},
                                         "solution": {
-                                            "title": "Low resolution",
+                                            "title": "Resolution",
                                             "validComplaint": false,
                                             "questions": [
                                                 {
@@ -69,7 +68,7 @@
                                                     "isValid": false
                                                 },
                                                 {
-                                                    "title": "Automatic art work check?",
+                                                    "title": "Automatic artwork check?",
                                                     "isValid": false
                                                 },
                                                 {
@@ -108,7 +107,7 @@
                                         "text": "No",
                                         "question": {},
                                         "solution": {
-                                            "title": "Low resolution",
+                                            "title": "Resolution",
                                             "action": "File the complaint in presta",
                                             "validComplaint": true,
                                             "questions": [
@@ -117,18 +116,18 @@
                                                     "isValid": false
                                                 },
                                                 {
-                                                    "title": "Automatic art work check?",
+                                                    "title": "Automatic artwork check?",
                                                     "isValid": true
                                                 },
                                                 {
-                                                    "title": "Did we send a low resolution warning to the customer before printing the order?",
+                                                    "title": "Low resolution warning sent?",
                                                     "isValid": false
                                                 }
                                             ],
                                             "sumaries": [
                                                 {
                                                     "title": "Solution",
-                                                    "description": "since it's our fault we didn't sent a warning, we have to make up with it by offering a reprint or a refund."
+                                                    "description": "Since it's our fault we didn't sent a warning, we have to make up with it by offering a reprint or a refund."
                                                 },
                                                 {
                                                     "title": "What to say to the customer",
@@ -136,7 +135,7 @@
                                                 },
                                                 {
                                                     "title": "Log in Presta",
-                                                    "description": "Artwork - Automatic Checked, Autocheck - No Warning Given"
+                                                    "description": "Artwork - Automatic Checked / Autocheck - No Warning Given"
                                                 }
                                             ]
                                         }
@@ -146,7 +145,7 @@
                                         "text": "Yes",
                                         "question": {},
                                         "solution": {
-                                            "title": "Low resolution",
+                                            "title": "Resolution",
                                             "validComplaint": false,
                                             "questions": [
                                                 {
@@ -154,11 +153,11 @@
                                                     "isValid": false
                                                 },
                                                 {
-                                                    "title": "Automatic art work check?",
+                                                    "title": "Automatic artwork check?",
                                                     "isValid": true
                                                 },
                                                 {
-                                                    "title": "Did we send a low resolution warning to the customer before printing the order?",
+                                                    "title": "Low resolution warning sent?",
                                                     "isValid": true
                                                 }
                                             ],
@@ -189,23 +188,27 @@
                 "text": "Yes",
                 "question": {},
                 "solution": {
-                    "title": "Low resolution",
+                    "title": "Resolution",
                     "action": "File the complaint in presta",
                     "validComplaint": true,
                     "questions": [
                         {
-                            "title": "Is the DPI of the file too low?",
+                            "title": "cPDF is high res?",
                             "isValid": true
                         }
                     ],
                     "sumaries": [
                         {
                             "title": "Solution",
-                            "description": "In consideration of the inconvenience caused, we can offer the customer a 10% discount code that can be applied to their next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
+                            "description": "Since it's a complaint on the supplier and the file has no issues we can reprint using the same file."
                         },
                         {
                             "title": "What to say to the customer",
-                            "description": "I am sorry but you approved the proof despite being informed about the potential risk of poor print quality. We warned you via email that there is a risk that it will be printed badly. In consideration of the inconvenience caused, we can offer you a 10% discount code that can be applied to the next order. This discount serves as a gesture of goodwill to express our commitment to customer satisfaction."
+                            "description": "The file you provided was of good quality, but unfortunately, the printer outputted it with a lower DPI than expected. To make up for any inconvenience caused, I'd like to offer you a reprint of your order. If you can't use the reprint because it will be too late, I can offer you a refund on this order."
+                        },
+                        {
+                            "title": "Log in Presta",
+                            "description": "Supplier - Quality Wrong / Printed incorrectly"
                         }
                     ]
                 }
