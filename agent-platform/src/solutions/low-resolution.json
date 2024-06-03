@@ -21,6 +21,7 @@
                                     {
                                         "class": "btnsecondary",
                                         "text": "No",
+                                        "question": {},
                                         "solution": {
                                             "title": "Resolution",
                                             "action": "File the complaint in presta",

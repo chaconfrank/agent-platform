@@ -69,7 +69,7 @@ export default {
                 });
         },
         answerQuestion(option) {
-            this.question = option.question || {};
+            this.question = option?.question || {};
             this.action = option.action !== "" ? option.action : "";
 
 
